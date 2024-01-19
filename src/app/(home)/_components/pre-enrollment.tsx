@@ -1,12 +1,13 @@
 'use client'
 
 import { useState } from 'react';
-import { track } from '@vercel/analytics';
+import { track } from '@vercel/analytics'
 import InputMask from 'react-input-mask';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 import Confetti from 'react-dom-confetti';
+
 import { Button } from '@/components/ui/button';
 import {
   Form,
