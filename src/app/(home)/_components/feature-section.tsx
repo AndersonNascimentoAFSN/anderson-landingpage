@@ -3,7 +3,6 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { Separator } from "@/components/ui/separator"
 import { FeatureCardContent, FeatureCardIcon, FeatureCardRoot, FeatureCardText, FeatureCardTitle } from './feature-card';
-import type { IconsNames } from '@/components/icon-component';
 
 const content = [
   {
@@ -209,8 +208,8 @@ export function FeatureSection() {
           conteúdo abaixo...
         </p>
         <Accordion type='single' collapsible className='w-full'>
-          {content.map((item) => (
-            <AccordionItem value={`item-${item.id}`} key={item.id}>
+          {content.map((item, index) => (
+            <AccordionItem value={`item-${item.id}`} key={index}>
               <AccordionTrigger>
                 <div className='space-y-1 text-left'>
                   <h4 className='text-sm font-medium leading-none'>
@@ -222,14 +221,21 @@ export function FeatureSection() {
                 </div>
               </AccordionTrigger>
               <AccordionContent className='text-left'>
-                {item.episodes.map((episode) => (
-                  <>
-                    <div key={episode.id} className='text-sm'>
-                      {`Ep-${episode.id}: ${episode.title}`}
+                {item.episodes.map((episode, index) => {
+                  // console.log(index)
+                  return (
+                    <div key={episode.id}>
+                      <div className='text-sm'>
+                        {`Ep-${episode.id}: ${episode.title}`}
+                      </div>
+                      {
+                        item.episodes.length - 1 > index && (
+                          <Separator className='my-2' />
+                        )
+                      }
                     </div>
-                    <Separator className='my-2' />
-                  </>
-                ))}
+                  )
+                })}
               </AccordionContent>
             </AccordionItem>
           ))}
