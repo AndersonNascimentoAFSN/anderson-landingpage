@@ -1,5 +1,5 @@
 import { Check } from "lucide-react";
-import { Enrollment } from "../enrollment";
+import { Enrollment } from "./enrollment";
 import { PreEnrollment } from "./pre-enrollment";
 
 export function InvestmentSection() {
