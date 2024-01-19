@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { Analytics } from '@vercel/analytics/react'
 import { fontHeading, fontSans } from './fonts'
 import { cn } from '@/lib/utils'
 import { Providers } from './providers'
@@ -31,9 +32,10 @@ export default function RootLayout({
         fontSans.variable,
         fontHeading.variable
       )}>
-          <Providers>
-            {children}
-          </Providers>
+        <Providers>
+          {children}
+          <Analytics />
+        </Providers>
       </body>
     </html>
   )
