@@ -41,7 +41,6 @@ export function IntroSection() {
           )}>Saiba mais</a>
         </div>
       </div>
-      <h1 className="text-primary">Landing Page</h1>
     </section>
   )
 }
